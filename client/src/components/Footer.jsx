@@ -24,10 +24,10 @@ function Footer() {
             className="flex items-center justify-start gap-3 mb-1"
             target="_blank"
           >
-            <CgInstagram /> Instagram
+            <CgInstagram /> @molka_prints
           </a>
           <a className="flex items-center justify-start gap-3">
-            <CgPhone /> +216 27 88 77 44
+            <CgPhone /> +216 54 243 724
           </a>
         </div>
         <div className="text-xl uppercase hidden lg:block">

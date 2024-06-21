@@ -60,7 +60,7 @@ function Home() {
           </h2>
           {loading ? (
             <div className="h-full w-full flex justify-center items-center flex-1">
-              <CgSpinnerTwo className="w-6 h-6 animate-spin mx-auto text-white" />
+              <CgSpinnerTwo className="w-6 h-6 animate-spin mx-auto text-pinky" />
             </div>
           ) : (
             <div className="flex justify-center flex-wrap gap-4 px-4">

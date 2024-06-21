@@ -13,6 +13,9 @@ export const getAllProducts = async (req, res) => {
     const products = await prisma.product.findMany({
       skip: skip,
       take: limit,
+      orderBy: {
+        createdAt: 'desc'
+      },
     });
 
     return res.status(200).json(products);
