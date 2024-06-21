@@ -1,0 +1,17 @@
+input{
+    border: none;
+    outline: none;
+}
+
+input:focus{
+    border: none;
+    outline: none;
+}
+
+#loginbtn{
+    transition: all .3s ease-in;
+}
+
+#loginbtn:hover{
+    border-radius: 5rem;
+}
