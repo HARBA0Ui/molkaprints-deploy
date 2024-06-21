@@ -53,7 +53,7 @@ export const contactEmail = async (req, res) => {
         <h1>New Contact ✉️</h1>
         <h2><strong>Email:</strong> ${email}</h2>
         <h2><strong>Message:</strong></h2>
-        <p>${desc}</p>
+        <h3>${desc}</h3>
       `
     };
 
