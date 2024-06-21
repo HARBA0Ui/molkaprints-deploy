@@ -4,9 +4,9 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "server": "npm run generate:prisma && nodemon server.js",
-    "generate:prisma": "npx prisma generate",
-    "build": "npm install --prefix ./client && npm run build --prefix ./client && npm install"
+    "server": "nodemon server.js",
+    "build": "npm run generate:prisma && npm install --prefix ./client && npm run build --prefix ./client && npm install",
+    "generate:prisma": "npx prisma generate"
   },
   "keywords": [],
   "author": "",
