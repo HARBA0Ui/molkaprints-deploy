@@ -1,2 +1,2 @@
-const baseURL = "/";
+const baseURL = "";
 export default baseURL;
