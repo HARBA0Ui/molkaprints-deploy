@@ -84,7 +84,7 @@ function ProductIdPage() {
     <div className="m-auto flex justify-center items-center min-h-[70vh] w-[90vw] xl:w-[70vw] max-w-[1440px] py-20">
       {isLoading ? (
         <div className="h-full w-full flex justify-center items-center flex-1">
-          <CgSpinnerTwo className="w-6 h-6 animate-spin mx-auto text-white" />
+          <CgSpinnerTwo className="w-6 h-6 animate-spin mx-auto text-pinky" />
         </div>
       ) : (
         <div className="flex justify-center flex-col md:flex-row items-center w-full gap-8 md:gap-16 lg:gap-20 xl:gap-24">
