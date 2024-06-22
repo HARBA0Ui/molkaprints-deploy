@@ -3,10 +3,19 @@ import prisma from "../db/prisma.js";
 import fs from "fs";
 import path from "path";
 
+import cloudinary from "cloudinary";
+import dotenv from "dotenv";
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
 export const getAllProducts = async (req, res) => {
   try {
-    const page = parseInt(req.query.page) || 1; 
-    const limit = parseInt(req.query.limit) || 8; 
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 8;
 
     const skip = (page - 1) * limit;
 
@@ -23,7 +32,6 @@ export const getAllProducts = async (req, res) => {
     return res.status(500).json({ message: "Couldn't fetch products!" });
   }
 };
-
 
 export const getProduct = async (req, res) => {
   try {
@@ -109,13 +117,16 @@ export const deleteProduct = async (req, res) => {
 // Create a new product
 
 export const createProduct = async (req, res) => {
-  const imgs = [];
-  req.files.forEach((file) => imgs.push(file.filename));
-  const { title, desc, price: reqPrice } = req.body;
-  const price = parseFloat(reqPrice);
-  const product = { title, desc, imgs, price };
-  // console.log("product", product)
+  console.log(req.files[0]);
+
   try {
+    const { title, desc, price: reqPrice } = req.body;
+    const price = parseFloat(reqPrice);
+    const rest = await cloudinary.uploader.upload(req.files[0].path);
+    const imgs = [];
+    imgs[0] = rest.secure_url;
+    const product = { title, desc, imgs, price };
+
     await prisma.product.create({
       data: product,
     });
@@ -148,12 +159,10 @@ export const updateProduct = async (req, res) => {
         },
       });
     } else {
+      const rest = await cloudinary.uploader.upload(req.files[0].path);
       const imgs = [];
-      req.files.forEach((file) => imgs.push(file.filename));
+      imgs[0] = rest.secure_url;
       const newProduct = { title, desc, imgs, price };
-
-      // console.log("new update: ", newProduct);
-
       await prisma.product.update({
         where: {
           id: id,

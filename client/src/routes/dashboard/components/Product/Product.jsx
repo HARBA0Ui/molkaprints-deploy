@@ -1,6 +1,5 @@
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import baseURL from "../../../../lib/basicUrlRequest";
 import apiRequest from "../../../../lib/apiRequest";
 import { memo, useState } from "react";
 import LoadingSpinner from "../../../../components/LoadingSpinner";
@@ -27,7 +26,7 @@ function Product({ product: p }) {
         {/* skeleton????x */}
         <div className="w-1/2 flex items-center justify-between">
           <img
-            src={baseURL + "/Images/" + p.imgs[0]}
+            src={p.imgs[0]}
             className="w-20 border-zinc-400 object-fill"
           />
           <div className=" w-[150px] justify-self-end">{p.title}</div>

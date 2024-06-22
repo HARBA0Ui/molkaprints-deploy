@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import apiRequest from "../../lib/apiRequest";
 import { useParams } from "react-router-dom";
-import baseURL from "../../lib/basicUrlRequest";
 import { CgSpinnerTwo } from "react-icons/cg";
 
 function ProductIdPage() {
@@ -93,8 +92,8 @@ function ProductIdPage() {
           <div className="flex justify-center items-center w-1/2 min-w-[200px] max-w-[450px] ">
             <img
               className="w-full max-h-[700px]"
-              src={`${baseURL}/Images/${product.imgs[0]}`}
-            />
+              src={product.imgs[0]}
+              />
           </div>
           {/* details container  */}
           <div className="flex flex-col gap-4 text-center md:text-left md:w-[550px]">
@@ -151,7 +150,7 @@ function ProductIdPage() {
               <article className="text-sm rounded-md bg-white shadow-md p-2 px-4 md:w-full lg:w-4/5 w-4/5 mx-auto md:mx-0 flex items-center justify-between">
                 {/* skeleton????x */}
                 <img
-                  src={baseURL + "/Images/" + product.imgs[0]}
+                  src={product.imgs[0]}
                   className="w-16 object-fill max-h-24 border border-zinc-400 rounded-sm"
                 />
                 <div className="">{product.title}</div>

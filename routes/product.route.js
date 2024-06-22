@@ -37,10 +37,10 @@ const upload = multer({
   storage,
 });
 
-router.post("/", upload.array("images", 4), createProduct);
+router.post("/", upload.array("images", 1), createProduct);
 
 //update Product
 
-router.put("/:id", upload.array("images", 4),updateProduct);
+router.put("/:id", upload.array("images", 1),updateProduct);
 
 export default router;

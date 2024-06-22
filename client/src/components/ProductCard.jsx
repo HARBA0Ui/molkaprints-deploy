@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-import baseURL from "../lib/basicUrlRequest";
 
 function ProductCard({ product }) {
   return (
@@ -17,8 +16,8 @@ function ProductCard({ product }) {
           </div>
         ) : (
           <img
-            src={baseURL + "/Images/" + product.imgs[0]}
-            className="group-hover:scale-105 transition-all w-full h-full object-cover"
+          src={product.imgs[0]}
+          className="group-hover:scale-105 transition-all w-full h-full object-cover"
           />
         )}
       </div>

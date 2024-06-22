@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import apiRequest from "../../lib/apiRequest";
 import { Link } from "react-router-dom";
-import baseURL from "../../lib/basicUrlRequest";
 import ProductCard from "../../components/ProductCard";
 
 function ProductsPage() {

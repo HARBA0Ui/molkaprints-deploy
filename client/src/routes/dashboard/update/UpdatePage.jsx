@@ -4,7 +4,6 @@ import apiRequest from "../../../lib/apiRequest";
 import { useEffect, useState } from "react";
 import { HiMiniCursorArrowRays } from "react-icons/hi2";
 import { AiFillCheckCircle } from "react-icons/ai";
-import baseURL from "../../../lib/basicUrlRequest";
 import { CgSpinnerTwo } from "react-icons/cg";
 import LoadingSpinner from "./../../../components/LoadingSpinner";
 
@@ -176,24 +175,14 @@ function UpdatePage() {
               Images
             </h3>
             <div className="images flex flex-wrap justify-center items-center gap-10">
-              {product.imgs.length == 1 ? (
+              {product.imgs.length == 1 && (
                 <img
                   className="w-56 h-74"
                   alt={title}
-                  src={`${baseURL}/Images/${product.imgs[0]}`}
-                />
-              ) : (
-                product.imgs.map((pimg, index) => {
-                  return (
-                    <img
-                      key={pimg}
-                      className="w-56 h-74"
-                      alt={product.title + index}
-                      src={`${baseURL}/Images/${pimg}`}
-                    />
-                  );
-                })
+                  src={product.imgs[0]}
+                  />
               )}
+
             </div>
           </div>
         </div>

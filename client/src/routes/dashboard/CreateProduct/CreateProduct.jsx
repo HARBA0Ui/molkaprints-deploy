@@ -26,10 +26,10 @@ const CreateProduct = () => {
       formData.append("title", title);
       formData.append("desc", desc);
       formData.append("price", price);
-      //addimages
       Array.from(images).forEach((img) => formData.append("images", img));
 
-      const res = await apiRequest.post("/products/", formData);
+      const res = await apiRequest.post("/products", formData);
+      console.log(res)
 
       setTitle("");
       setDesc("");
