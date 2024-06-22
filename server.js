@@ -33,6 +33,8 @@ app.use(express.static(path.join(__dirname, "/client/dist")));
 
 app.get("*", (req, res) => res.sendFile(path.join(__dirname, "/client/dist/index.html")))
 
-app.listen(8800, () => {
-  console.log("The server is running!!");
+const PORT = process.env.PORT || 8800;
+
+app.listen(PORT, () => {
+  console.log(`The server is running on port ${PORT}`);
 });
